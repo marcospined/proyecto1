@@ -46,7 +46,10 @@ public class MyGdxGame implements ApplicationListener {
 	@Override
 	public void render() {	
 		sprite.setRotation(rotacion);
-		rotacion--;
+		if(Gdx.input.isTouched())
+		{
+			rotacion ++;
+		}
 		Gdx.gl.glClearColor(0.4f, 0.5f, 1f, 1f);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
