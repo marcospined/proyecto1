@@ -16,6 +16,8 @@ public class MyGdxGame implements ApplicationListener {
 	private Texture texture;
 	private Sprite sprite;
 	int rotacion;
+	Texture texture_nave;
+	Sprite sprite_nave;
 	@Override
 	public void create() {		
 		float w = Gdx.graphics.getWidth();
@@ -35,6 +37,13 @@ public class MyGdxGame implements ApplicationListener {
 		sprite.setPosition(-sprite.getWidth()/2, -sprite.getHeight()/2);
 		sprite.setPosition(0,0);
 		sprite.setRotation(25);
+		
+		texture_nave=new Texture(Gdx.files.internal("data/nave.png"));
+		
+		sprite_nave=new Sprite(texture_nave,128,64);
+		sprite_nave.setPosition(-0.4f,-0.4f);
+		sprite_nave.setSize(0.5f,0.5f);
+		
 	}
 
 	@Override
@@ -56,7 +65,11 @@ public class MyGdxGame implements ApplicationListener {
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		sprite.draw(batch);
+		sprite_nave.draw(batch);
 		batch.end();
+		
+
+		
 	}
 
 	@Override
